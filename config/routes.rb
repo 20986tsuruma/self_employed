@@ -4,10 +4,19 @@ Rails.application.routes.draw do
   root 'homes#top'
   get 'homes/about' => 'homes#about'
 
+  # 会員用ルーティング
+  resources :contacts, only: [:new, :create]
+
+  # 管理者用ルーティング
   devise_for :admins, controllers: {
   	sessions:      'admins/sessions',
   	passwords:     'admins/passwords',
   	registrations: 'admins/registrations'
   }
+
+  namespace :admins do
+  	get 'home/top' => 'home#top'
+  	 resources :contacts, only: [:index, :show, :edit, :update]
+  end
 
 end
