@@ -19,8 +19,15 @@
         </nav>
         <nav>
           <ul class="nav navbar-nav navbar-right" style="margin-top: 45px;font-size: 15px;">
-            <li><%= link_to '事業案内', root_path %></li>
-            <li><%= link_to '会社概要', homes_about_path %></li>
+            <% if admin_signed_in? %>
+              <li><%= link_to "お問い合わせ一覧", admins_contacts_path %></li>
+              <li><%= link_to "見積もり依頼一覧", admins_contacts_path %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to '事業案内', root_path %></li>
+              <li><%= link_to '会社概要', homes_about_path %></li>
+              <li><%= link_to 'お問い合わせ', new_contact_path %></li>
+            <% end %>
           </ul>
         </nav>
       </div>
