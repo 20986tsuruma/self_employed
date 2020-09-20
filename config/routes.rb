@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   namespace :admins do
   	get 'home/top' => 'home#top'
   	 resources :contacts, only: [:index, :show, :edit, :update]
+     resources :requests, only: [:index, :show, :edit, :update]
   end
 
 end

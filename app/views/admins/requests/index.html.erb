@@ -1,0 +1,30 @@
+<div class="row">
+	<h2>お見積り依頼一覧</h2>
+
+	<div class="col-xs-12">
+		<table class="table">
+			<thead>
+				<th>日時</th>
+				<th>氏名</th>
+				<th>会社名</th>
+				<th>メールアドレス</th>
+				<th>納品日</th>
+				<th>ステータス</th>
+			</thead>
+
+			<tbody>
+				<% @requests.each do |request| %>
+				    <tr>
+				    	<td><%= link_to admins_request_path(contact) do %>
+				    		<%= contact.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+				    		<% end %>
+				    	</td>
+				    	<td><%= request.name %></td>
+				    	<td><%= request.company_name %></td>
+				    	<td><%= request.email %></td>
+				    </tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+</div>
