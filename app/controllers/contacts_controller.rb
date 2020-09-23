@@ -4,13 +4,19 @@ class ContactsController < ApplicationController
 		@contact = Contact.new
 	end
 
-	def create
-		@contact = Contact.new(contact_params)
-		if @contact.save
-			redirect_to root_path, notice: "お問い合わせを送信しました"
+	def confirm
+		@contact = Contact.new(params[:contact].permit(:name, :company_name, :email, :telephone_number, :contact_detail))
+		if @contact.valid?
+			render :confirm
 		else
 			render :new
 		end
+	end
+
+	def thanks
+		@contact = Contact.new(params[:contact].permit(:name, :company_name, :email, :telephone_number, :contact_detail))
+		ContactMailer.received_email(@contact).deliver
+		render :thanks
 	end
 
 	private

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   # 会員用ルーティング
   resources :contacts, only: [:new, :create]
+  post 'contacts/confirm' => 'contacts#confirm'
+  post 'contacts/thanks' => 'contacts#thanks'
 
   # 管理者用ルーティング
   devise_for :admins, controllers: {
