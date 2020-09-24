@@ -2,85 +2,64 @@
 	<h2>お見積り依頼</h2>
 
   <%= form_for(@request) do |f| %>
-	<div class="form-group">
-		<div class="row">
-			<div class="col-xs-2">
-				<%= f.label "氏名" %>
-			</div>
-			<div class="col-xs-3">
-				<%= f.text_field :name %>
-			</div>
-		</div>
+  <% if @request.errors.any? %>
+	<div class="alert alert-danger" role="alert">
+		<strong>入力内容にエラーがあります</strong>
+		<ul>
+			<% @request.errors.each do |attr, msg| %>
+			  <li><%= msg %></li>
+			<% end %>
+		</ul>
 	</div>
+	<% end %>
 
-	<div class="form-group">
-		<div class="row">
-			<div class="col-xs-2">
-				<%= f.label "会社名" %>
-			</div>
-			<div class="col-xs-3">
-				<%= f.text_field :company_name %>
-			</div>
-		</div>
-	</div>
+	<div class="col-xs-8">
+	<table class="table">
+    <tr>
+    	<th>名前<span class="text-danger">（必須）</span></th>
+    	<td><%= f.text_field :name %></td>
+    </tr>
 
-	<div class="form-group">
-		<div class="row">
-			<div class="col-xs-2">
-				<%= f.label "メールアドレス" %>
-			</div>
-			<div class="col-xs-3">
-				<%= f.text_field :email %>
-			</div>
-		</div>
-	</div>
+    <tr>
+    	<th>会社名<span class="text-danger">（必須）</span></th>
+    	<td><%= f.text_field :company_name %></td>
+    </tr>
 
-	<div class="form-group">
-		<div class="row">
-			<div class="col-xs-2">
-				<%= f.label "郵便番号" %>
-			</div>
-			<div class="col-xs-3">
-				<%= f.text_field :postal_code %>
-			</div>
-		</div>
-	</div>
+    <tr>
+      <th>メールアドレス<span class="text-danger">（必須）</span></th>
+      <td><%= f.text_field :email %></td>
+    </tr>
 
-	<div class="form-group">
-		<div class="row">
-			<div class="col-xs-2">
-				<%= f.label "住所" %>
-			</div>
-			<div class="col-xs-3">
-				<%= f.text_field :address %>
-			</div>
-		</div>
-	</div>
+    <tr>
+      <th>郵便番号(ハイフンなし)<span class="text-danger">（必須）</span></th>
+      <td><%= f.text_field :postal_code %></td>
+    </tr>
 
-	<div class="form-group">
-		<div class="row">
-			<div class="col-xs-2">
-				<%= f.label "電話番号(ハイフンなし)" %>
-			</div>
-			<div class="col-xs-3">
-				<%= f.text_field :telephone_number %>
-			</div>
-		</div>
-	</div>
+    <tr>
+      <th>住所<span class="text-danger">（必須）</span></th>
+      <td><%= f.text_field :address %></td>
+    </tr>
 
-	<div class="form-group">
-		<div class="row">
-			<div class="col-xs-2">
-				<%= f.label "お見積り内容" %>
-			</div>
-			<div class="col-xs-3">
-				<%= f.text_area :request_detail %>
-			</div>
-		</div>
-	</div>
+    <tr>
+      <th>電話番号(ハイフンなし)<span class="text-danger">（必須）</span></th>
+      <td><%= f.text_field :telephone_number %></td>
+    </tr>
+
+    <tr>
+      <th>納品日<span class="text-danger">（必須）</span></th>
+      <td><%= f.text_field :delivery_date, class: "form-control date-picker" %></td>
+    </tr>
+
+    <tr>
+      <th>お見積り内容<span class="text-danger">（必須）</span></th>
+      <td><%= f.text_area :request_detail %></td>
+    </tr>
+
+    </table>
 
 	<div class="row">
 		<%= f.submit 'お見積り依頼を送信する', class: "btn btn-primary btn-new-register btn-lg" %>
 	</div>
+    </div>
   <% end %>
 </div>

@@ -1,35 +1,64 @@
 <div class="row">
 	<h2>お見積り内容詳細</h2>
 
-	<div class="col-xs-7">
-		<label class="col-xs-3">日時</label>
-		<div class="col-xs-3">
-			<%= @request.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
-		</div>
+	<div class="col-xs-8">
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>受注日</th>
+					<td><%= @request.created_at.strftime('%Y/%m/%d') %></td>
+				</tr>
 
-		<label class="col-xs-3">氏名</label>
-		<div class="col-xs-3">
-			<%= @request.name %>
-		</div>
+				<tr>
+					<th>氏名</th>
+					<td><%= @request.name %></td>
+				</tr>
 
-		<label class="col-xs-3">会社名</label>
-		<div class="col-xs-3">
-			<%= @request.company_name %>
-		</div>
+				<tr>
+					<th>会社名</th>
+					<td><%= @request.company_name %></td>
+				</tr>
 
-		<label class="col-xs-3">メールアドレス</label>
-		<div class="col-xs-3">
-			<%= @request.email %>
-		</div>
+				<tr>
+					<th>メールアドレス</th>
+					<td><%= @request.email %></td>
+				</tr>
 
-		<label class="col-xs-3">電話番号</label>
-		<div class="col-xs-3">
-			<%= @request.telephone_number %>
-		</div>
+				<tr>
+					<th>郵便番号</th>
+					<td><%= @request.postal_code %></td>
+				</tr>
 
-		<label class="col-xs-3">お見積り内容</label>
-		<div class="col-xs-3">
-			<%= @request.request_detail %>
-		</div>
+				<tr>
+					<th>住所</th>
+					<td><%= @request.address %></td>
+				</tr>
+
+				<tr>
+					<th>電話番号</th>
+					<td><%= @request.telephone_number %></td>
+				</tr>
+
+				<tr>
+					<th>納品日</th>
+					<td><%= @request.delivery_date.strftime('%Y/%m/%d') %></td>
+				</tr>
+
+				<tr>
+					<th>お見積り内容</th>
+					<td><%= @request.request_detail %></td>
+				</tr>
+
+				<tr>
+					<th>納品ステータス</th>
+					<td>
+						<%= form_for(@request, url:admins_request_path) do |f| %>
+							<%= f.select :delivery_status, {"未納品": false, "納品済み": true}, {class:"form-control"}  %>
+							<%= f.submit "更新", class:"btn btn-sm btn-primary" %>
+						<% end %>
+					</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </div>

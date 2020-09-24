@@ -5,9 +5,10 @@ class RequestsController < ApplicationController
 	end
 
 	def create
-		@request = Request.new(contact_params)
+		@request = Request.new(request_params)
 		if @request.save
-			redirect_to root_path, notice: "お見積り依頼を送信しました"
+			RequestMailer.send_confirm_to_request(@request).deliver
+			redirect_to requests_thanks_path
 		else
 			render :new
 		end
@@ -15,7 +16,7 @@ class RequestsController < ApplicationController
 
 	private
 	def request_params
-		params.require(:request).permit(:name, :company_name, :email, :postal_code, :address, :telephone_number, :request_detail)
+		params.require(:request).permit(:name, :company_name, :email, :postal_code, :address, :telephone_number, :request_detail, :delivery_date, :correspond)
 	end
 
 end

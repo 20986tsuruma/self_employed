@@ -7,10 +7,14 @@ class ContactsController < ApplicationController
 	def create
 		@contact = Contact.new(contact_params)
 		if @contact.save
-			redirect_to root_path, notice: "お問い合わせを送信しました"
-		else
-			render :new
-		end
+		    ContactMailer.send_confirm_to_contact(@contact).deliver
+		    redirect_to contacts_thanks_path
+	    else
+		    render 'new'
+	    end
+    end
+
+	def thanks
 	end
 
 	private
