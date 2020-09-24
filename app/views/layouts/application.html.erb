@@ -5,11 +5,39 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://kit.fontawesome.com/0c25928deb.js" crossorigin="anonymous"></script>
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header class="navbar navbar-fixed-top">
+      <div class="container">
+        <nav class="nav navbar-nav navbar-left">
+          <span style="font-size: 70px;font-weight:bold;color: white;"><%= link_to "XXX会社", root_path %></span>
+        </nav>
+        <nav>
+          <ul class="nav navbar-nav navbar-right" style="margin-top: 45px;font-size: 15px;">
+            <% if admin_signed_in? %>
+              <li><%= link_to "お問い合わせ一覧", admins_contacts_path %></li>
+              <li><%= link_to "見積もり依頼一覧", admins_requests_path %></li>
+              <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to '事業案内', root_path %></li>
+              <li><%= link_to '会社概要', homes_about_path %></li>
+              <li><%= link_to 'お問い合わせ', new_contact_path %></li>
+              <li><%= link_to '見積り依頼', new_request_path %></li>
+            <% end %>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="container", style="padding-top: 200px; padding-bottom: 80px;">
+          <%= yield %>
+      </div>
+    </main>
   </body>
 </html>

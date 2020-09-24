@@ -4,24 +4,32 @@
 	<div class="col-xs-12">
 		<table class="table">
 			<thead>
-				<th>日時</th>
+				<th>受注日</th>
 				<th>氏名</th>
 				<th>会社名</th>
 				<th>メールアドレス</th>
 				<th>納品日</th>
-				<th>ステータス</th>
+				<th>納品ステータス</th>
 			</thead>
 
 			<tbody>
 				<% @requests.each do |request| %>
 				    <tr>
-				    	<td><%= link_to admins_request_path(contact) do %>
-				    		<%= contact.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+				    	<td><%= link_to admins_request_path(request) do %>
+				    		<%= request.created_at.strftime('%Y/%m/%d') %>
 				    		<% end %>
 				    	</td>
 				    	<td><%= request.name %></td>
 				    	<td><%= request.company_name %></td>
 				    	<td><%= request.email %></td>
+				    	<td><%= request.delivery_date.strftime('%Y/%m/%d') %></td>
+				    	<td>
+				    		<% if request.delivery_status == false %>
+				    		    未納品
+				    		<% else %>
+				    		    納品済み
+				    		<% end %>
+				    	</td>
 				    </tr>
 				<% end %>
 			</tbody>

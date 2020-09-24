@@ -7,7 +7,11 @@ Rails.application.routes.draw do
   # 会員用ルーティング
   resources :contacts, only: [:new, :create]
   post 'contacts/confirm' => 'contacts#confirm'
-  post 'contacts/thanks' => 'contacts#thanks'
+  get 'contacts/thanks' => 'contacts#thanks'
+
+  resources :requests, only: [:new, :create]
+  post 'requests/confirm' => 'requests#confirm'
+  get 'requests/thanks' => 'requests#thanks'
 
   # 管理者用ルーティング
   devise_for :admins, controllers: {
@@ -18,8 +22,8 @@ Rails.application.routes.draw do
 
   namespace :admins do
   	get 'home/top' => 'home#top'
-  	 resources :contacts, only: [:index, :show, :edit, :update]
-     resources :requests, only: [:index, :show, :edit, :update]
+  	 resources :contacts, only: [:index, :show, :update]
+     resources :requests, only: [:index, :show, :update]
   end
 
 end

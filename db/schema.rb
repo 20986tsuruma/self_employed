@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_09_20_073547) do
     t.string "email"
     t.string "telephone_number"
     t.text "contact_detail"
+    t.boolean "reply_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -42,6 +43,8 @@ ActiveRecord::Schema.define(version: 2020_09_20_073547) do
     t.string "address"
     t.string "telephone_number"
     t.text "request_detail"
+    t.datetime "delivery_date"
+    t.boolean "delivery_status", default: false, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

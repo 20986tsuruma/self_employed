@@ -8,19 +8,26 @@
 				<th>氏名</th>
 				<th>会社名</th>
 				<th>メールアドレス</th>
-				<th>ステータス</th>
+				<th>返信ステータス</th>
 			</thead>
 
 			<tbody>
 				<% @contacts.each do |contact| %>
 				    <tr>
 				    	<td><%= link_to admins_contact_path(contact) do %>
-				    		<%= contact.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+				    		<%= contact.created_at.strftime('%Y/%m/%d') %>
 				    		<% end %>
 				    	</td>
 				    	<td><%= contact.name %></td>
 				    	<td><%= contact.company_name %></td>
 				    	<td><%= contact.email %></td>
+				    	<td>
+				    		<% if contact.reply_status == false %>
+				    		    未返信
+				    		<% else %>
+				    		    返信済み
+				    		<% end %>
+				    	</td>
 				    </tr>
 				<% end %>
 			</tbody>
