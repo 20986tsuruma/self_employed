@@ -2,7 +2,12 @@ class Admins::ContactsController < ApplicationController
 	before_action :authenticate_admin!
 
 	def index
-		@contacts = Contact.all
+		case params[:contact_sort]
+		when "0"
+			@contacts = Contact.where(reply_status: false).page(params[:page])
+		else
+			@contacts = Contact.page(params[:page])
+		end
 	end
 
 	def show

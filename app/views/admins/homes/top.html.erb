@@ -1,0 +1,18 @@
+<div class="row" style="height: 649px;">
+
+    <h1 style="width: 250px; height: 50px;border-radius: 15px;background-color: rgba( 135, 135, 135, 0.55 );font-size: 23px;font-weight: bold;text-align: center;padding-top: 12px;">管理者画面</h1>
+
+    <h3 style="padding-top: 40px;">未対応の<br>
+    	お問い合わせが
+        <%= link_to admins_contacts_path(contact_sort: 0) do %>
+            <%= @not_compatible_contacts.count %> 件
+        <% end %>
+        <br>
+        見積り依頼が
+        <%= link_to admins_requests_path(request_sort: 0) do %>
+            <%= @not_compatible_requests.count %> 件
+        <% end %>
+
+    </h3>
+
+</div>
