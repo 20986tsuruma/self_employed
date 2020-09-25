@@ -1,7 +1,12 @@
 class Admins::RequestsController < ApplicationController
 
 	def index
-		@requests = Request.page(params[:page])
+		case params[:request_sort]
+		when "0"
+			@requests = Request.where(delivery_status: false).page(params[:page])
+		else
+			@requests = Request.page(params[:page])
+		end
 	end
 
 	def show
