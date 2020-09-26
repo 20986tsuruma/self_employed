@@ -22,7 +22,6 @@ Rails.application.routes.draw do
 
   namespace :admins do
   	get 'homes/top' => 'homes#top'
-    get 'search' => 'users#search'
   	 resources :contacts, only: [:index, :show, :update]
      resources :requests, only: [:index, :show, :update]
   end

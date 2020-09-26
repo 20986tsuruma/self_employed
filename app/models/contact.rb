@@ -5,4 +5,12 @@ class Contact < ApplicationRecord
 	validates :telephone_number, :presence => {:message => '電話番号を入力してください'}
 	validates :contact_detail, :presence => {:message => 'お問い合わせ内容を入力してください'}
 	validates :reply_status, inclusion: {in: [true, false]}
+
+	def self.search(search)
+		if search
+			where(['name || company_name LIKE ?', "%#{search}%"])
+		else
+			all
+		end
+	end
 end
