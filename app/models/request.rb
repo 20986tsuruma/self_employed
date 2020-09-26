@@ -8,4 +8,12 @@ class Request < ApplicationRecord
 	validates :telephone_number, :presence => {:message => '電話番号を入力してください'}
 	validates :request_detail, :presence => {:message => 'お見積り内容を入力してください'}
 	validates :delivery_status, inclusion: {in: [true, false]}
+
+	def self.search(search)
+		if search
+			where(['name || company_name LIKE ?', "%#{search}%"])
+		else
+			all
+		end
+	end
 end

@@ -6,7 +6,7 @@ class Admins::ContactsController < ApplicationController
 		when "0"
 			@contacts = Contact.where(reply_status: false).page(params[:page])
 		else
-			@contacts = Contact.page(params[:page])
+			@contacts = Contact.all.page(params[:page]).search(params[:search])
 		end
 	end
 

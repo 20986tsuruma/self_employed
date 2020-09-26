@@ -5,7 +5,7 @@ class Admins::RequestsController < ApplicationController
 		when "0"
 			@requests = Request.where(delivery_status: false).page(params[:page])
 		else
-			@requests = Request.page(params[:page])
+			@requests = Request.all.page(params[:page]).search(params[:search])
 		end
 	end
 
