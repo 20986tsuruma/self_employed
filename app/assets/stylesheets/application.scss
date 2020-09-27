@@ -29,10 +29,42 @@
 header {
   width: auto;
   height: 180px;
-  background-color: rgba( 135, 135, 135, 0.55 );
+  background-color: rgba( 230, 230, 250, 1 );
   padding-top: 50px;
   padding-left: 80px;
   padding-right: 100px;
   color: black;
   font-family: 'Corben', cursive;
 }
+
+.information{
+  width: 100%;
+  height: 200px;
+  font-size: 25px;
+  margin-left: 60px;
+  padding-top: 20px;
+  padding-bottom: 450px;
+}
+
+.image {
+  background-position: center;
+  padding-bottom: 50px;
+  }
+
+.image-size{
+  height: 600px;
+  width : 100%;
+}
+
+.slick-dots {
+        position: absolute !important;
+        bottom: 20px !important;
+        li {
+          font-size: 20px !important;
+          button:before {
+            content: "●" !important;
+            font-size: 14px !important;
+            color: rgb(60, 60, 60) !important;
+          }
+        }
+      }

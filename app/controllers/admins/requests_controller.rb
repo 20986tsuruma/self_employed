@@ -1,11 +1,12 @@
 class Admins::RequestsController < ApplicationController
+	before_action :authenticate_admin!
 
 	def index
 		case params[:request_sort]
 		when "0"
-			@requests = Request.where(delivery_status: false).page(params[:page])
+			@requests = Request.where(delivery_status: false).page(params[:page]).reverse_order
 		else
-			@requests = Request.all.page(params[:page]).search(params[:search])
+			@requests = Request.all.page(params[:page]).search(params[:search]).reverse_order
 		end
 	end
 
@@ -16,7 +17,7 @@ class Admins::RequestsController < ApplicationController
 	def update
 		@request = Request.find(params[:id])
 		if @request.update(request_params)
-			redirect_to admins_request_path(@request.id)
+			redirect_to request.referer, notice: "納品ステータスを更新しました"
 		else
 			render :show
 		end
