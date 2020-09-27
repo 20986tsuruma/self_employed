@@ -4,9 +4,9 @@ class Admins::ContactsController < ApplicationController
 	def index
 		case params[:contact_sort]
 		when "0"
-			@contacts = Contact.where(reply_status: false).page(params[:page])
+			@contacts = Contact.where(reply_status: false).page(params[:page]).reverse_order
 		else
-			@contacts = Contact.all.page(params[:page]).search(params[:search])
+			@contacts = Contact.all.page(params[:page]).search(params[:search]).reverse_order
 		end
 	end
 
@@ -17,7 +17,7 @@ class Admins::ContactsController < ApplicationController
 	def update
 		@contact = Contact.find(params[:id])
 		if @contact.update(contact_params)
-			redirect_to admins_contact_path(@contact.id)
+			redirect_to request.referer, notice: "返信ステータスを更新しました"
 		else
 			render :show
 		end

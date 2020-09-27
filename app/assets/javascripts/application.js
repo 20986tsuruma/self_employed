@@ -12,10 +12,22 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/i18n/datepicker-ja
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(function() {
+  $('.slider').slick({
+      dots: true,
+      autoplay: true,
+      autoplaySpeed: 4000,
+      speed: 800
+  });
+
+  $('.slick-dots li').on('mouseover', function() {
+    $('.slider').slick('goTo', $(this).index());
+  });
+});
