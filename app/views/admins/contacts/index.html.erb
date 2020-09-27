@@ -25,7 +25,7 @@
 				<% @contacts.each do |contact| %>
 				    <tr>
 				    	<td><%= link_to admins_contact_path(contact) do %>
-				    		<%= contact.created_at.strftime('%Y/%m/%d') %>
+				    		<%= contact.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
 				    		<% end %>
 				    	</td>
 				    	<td><%= contact.name %></td>

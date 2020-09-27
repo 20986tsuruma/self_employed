@@ -8,6 +8,7 @@ class RequestsController < ApplicationController
 		@request = Request.new(request_params)
 		if @request.save
 			RequestMailer.send_confirm_to_request(@request).deliver
+			RequestMailer.received_email(@request).deliver
 			redirect_to requests_thanks_path
 		else
 			render :new
