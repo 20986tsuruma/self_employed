@@ -6,15 +6,15 @@ self_employed
 
 - 管理者側
   - お問い合わせ機能
-    - ユーザーからのメールの確認
-  - 予約機能
-    - 予約登録(電話や口頭での予約に対応するため)
-    - 予約の確認/承認機能
+    - お問い合わせ内容の確認/ステータスの変更
+  - 見積り依頼機能
+    - 依頼内容の確認/ステータスの変更
+    - リマインダー機能(未対応の依頼がある場合、納品日の1日前に管理者にお知らせメールが送信される)
 - ユーザー側機能
   - お問い合わせ機能
     - 仕事の質問や依頼に関するメール送信
-  - 予約機能
-    - 予約登録機能
+  - 見積り依頼機能
+    - 見積り依頼に関するメール送信
 　
 
 ### サイトテーマ
@@ -29,20 +29,18 @@ self_employed
 ### 主な利用シーン
 仕事に関する質問や依頼をしたい時
 
-## 設計書
+### Setup
 
-``$ git clone https://github.com/20986tsuruma/self_employed``  
-``$ cd nagano-cake``  
-``$ rails db:seed``  
-``$ rails s -b 0.0.0.0``  
+``$ git clone https://github.com/20986tsuruma/self_employed  
+$ cd nagano-cake  
+$ rails db:seed  
+$ rails s -b 0.0.0.0``  
 
 管理者ページにログインする場合は、  
 管理者ログインページより、  
 メールアドレス：test@test.com  
 パスワード：testtest  
 を入力してください。  
-
-### 実装機能
 
 ### 機能一覧
 https://docs.google.com/spreadsheets/d/1XrMrTUC1daZ8PSlsei6LSHUm7X7GyCLkmKLLtVHEUko/edit?usp=sharing
