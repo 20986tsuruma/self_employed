@@ -25,10 +25,10 @@ set :output, 'log/crontab.log'
 
 set :environment, :production
 
-every 1.days, at: '8:00 am' do
+every 1.days, at: '10:30 am' do
 	runner "ContactMailer.auto_email.deliver"
 end
 
-every 1.days, at: '8:00 am' do
+every 1.days, at: '10:30 am' do
 	rake 'check_date:check_state'
 end
