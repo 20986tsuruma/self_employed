@@ -34,7 +34,7 @@
 
     <tr>
       <th>納品日</th>
-      <td><%= @request.delivery_date %></td>
+      <td><%= @request.delivery_date.strftime('%Y/%m/%d') %></td>
     </tr>
 
     <tr>
