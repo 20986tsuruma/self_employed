@@ -32,7 +32,7 @@ self_employed
 ### Setup
 
 ``$ git clone https://github.com/20986tsuruma/self_employed``  
-``$ cd nagano-cake``  
+``$ cd self_employed``  
 ``$ rails db:seed``  
 ``$ rails s -b 0.0.0.0``  
 
