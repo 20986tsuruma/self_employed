@@ -31,16 +31,16 @@ self_employed
 
 ## 設計書
 
-``$ git clone https://github.com/20986tsuruma/self_employed``
-``$ cd nagano-cake``
-``$ rails db:seed``
-``$ rails s -b 0.0.0.0``
+``$ git clone https://github.com/20986tsuruma/self_employed``  
+``$ cd nagano-cake``  
+``$ rails db:seed``  
+``$ rails s -b 0.0.0.0``  
 
-管理者ページにログインする場合は、
-管理者ログインページより、
-メールアドレス：test@test.com
-パスワード：testtest
-を入力してください。
+管理者ページにログインする場合は、  
+管理者ログインページより、  
+メールアドレス：test@test.com  
+パスワード：testtest  
+を入力してください。  
 
 ### 実装機能
 
