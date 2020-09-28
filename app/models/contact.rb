@@ -8,7 +8,7 @@ class Contact < ApplicationRecord
 
 	def self.search(search)
 		if search
-			where(['name || company_name LIKE ?', "%#{search}%"])
+			where(['name LIKE ? || company_name LIKE ?', "%#{search}%"])
 		else
 			all
 		end
