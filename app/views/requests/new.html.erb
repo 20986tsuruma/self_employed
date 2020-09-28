@@ -1,7 +1,8 @@
 <div class="row">
 	<h2>お見積り依頼</h2>
 
-  <%= form_for(@request) do |f| %>
+  <%= form_for :request, url: confirm_requests_path do |f| %>
+
   <% if @request.errors.any? %>
 	<div class="alert alert-danger" role="alert">
 		<strong>入力内容にエラーがあります</strong>
@@ -51,15 +52,15 @@
     </tr>
 
     <tr>
-      <th>お見積り内容<span class="text-danger">（必須）</span></th>
+      <th>お見積り依頼内容<span class="text-danger">（必須）</span></th>
       <td><%= f.text_area :request_detail %></td>
     </tr>
 
     </table>
 
-	<div class="row">
-		<%= f.submit 'お見積り依頼を送信する', class: "btn btn-primary btn-new-register btn-lg" %>
-	</div>
-    </div>
+	  <div class="row">
+		  <%= f.submit 'お見積り依頼を送信する', class: "btn btn-primary btn-new-register btn-lg" %>
+	  </div>
+  </div>
   <% end %>
 </div>

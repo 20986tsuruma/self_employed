@@ -1,7 +1,7 @@
 <div class="row">
 	<h2>お問い合わせ</h2>
 
-  <%= form_for(@contact) do |f| %>
+  <%= form_for :contact, url: confirm_contacts_path do |f| %>
 
   <% if @contact.errors.any? %>
 	<div class="alert alert-danger" role="alert">
@@ -44,7 +44,7 @@
   </table>
 
   <div class="row">
-      <%= f.submit 'お問い合わせ内容を送信する', class: "btn btn-primary btn-new-register btn-lg" %>
+      <%= f.submit 'お問い合わせ内容を確認する', class: "btn btn-primary btn-new-register btn-lg" %>
   </div>
   </div>
   <% end %>

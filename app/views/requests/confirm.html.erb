@@ -1,0 +1,69 @@
+<div class="row">
+  <h1>お見積り依頼</h1>
+
+  <table class="table">
+    <tr>
+      <th>名前</th>
+      <td><%= @request.name %></td>
+    </tr>
+
+    <tr>
+      <th>会社名</th>
+      <td><%= @request.company_name %></td>
+    </tr>
+
+    <tr>
+      <th>メールアドレス</th>
+      <td><%= @request.email %></td>
+    </tr>
+
+    <tr>
+      <th>郵便番号</th>
+      <td><%= @request.postal_code %></td>
+    </tr>
+
+    <tr>
+      <th>住所</th>
+      <td><%= @request.address %></td>
+    </tr>
+
+    <tr>
+      <th>電話番号</th>
+      <td><%= @request.telephone_number %></td>
+    </tr>
+
+    <tr>
+      <th>納品日</th>
+      <td><%= @request.delivery_date %></td>
+    </tr>
+
+    <tr>
+      <th>お見積り依頼内容</th>
+      <td><%= simple_format(@request.request_detail) %></td>
+    </tr>
+  </table>
+
+  <%= form_for :request, url: new_requests_path do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :company_name %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :postal_code %>
+    <%= f.hidden_field :address %>
+    <%= f.hidden_field :telephone_number %>
+    <%= f.hidden_field :delivery_date %>
+    <%= f.hidden_field :request_detail %>
+    <%= f.submit '入力画面へ戻る', class: "btn btn-secondary"%>
+  <% end %>
+
+  <%= form_for :request, url: requests_path do |f| %>
+    <%= f.hidden_field :name %>
+    <%= f.hidden_field :company_name %>
+    <%= f.hidden_field :email %>
+    <%= f.hidden_field :postal_code %>
+    <%= f.hidden_field :address %>
+    <%= f.hidden_field :telephone_number %>
+    <%= f.hidden_field :delivery_date %>
+    <%= f.hidden_field :request_detail %>
+    <%= f.submit '送信する', class: 'btn btn-primary' %>
+  <% end %>
+</div>
