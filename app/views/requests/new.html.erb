@@ -18,32 +18,32 @@
 	<table class="table">
     <tr>
     	<th>名前<span class="text-danger">（必須）</span></th>
-    	<td><%= f.text_field :name %></td>
+    	<td><%= f.text_field :name, class: "form-control" %></td>
     </tr>
 
     <tr>
     	<th>会社名<span class="text-danger">（必須）</span></th>
-    	<td><%= f.text_field :company_name %></td>
+    	<td><%= f.text_field :company_name, class: "form-control" %></td>
     </tr>
 
     <tr>
       <th>メールアドレス<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :email %></td>
+      <td><%= f.text_field :email, class: "form-control" %></td>
     </tr>
 
     <tr>
       <th>郵便番号(ハイフンなし)<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :postal_code %></td>
+      <td><%= f.text_field :postal_code, class: "form-control" %></td>
     </tr>
 
     <tr>
       <th>住所<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :address %></td>
+      <td><%= f.text_field :address, class: "form-control" %></td>
     </tr>
 
     <tr>
       <th>電話番号(ハイフンなし)<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :telephone_number %></td>
+      <td><%= f.text_field :telephone_number, class: "form-control" %></td>
     </tr>
 
     <tr>
@@ -53,7 +53,7 @@
 
     <tr>
       <th>お見積り依頼内容<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_area :request_detail %></td>
+      <td><%= f.text_area :request_detail, class: "form-control" %></td>
     </tr>
 
     </table>

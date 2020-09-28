@@ -18,27 +18,27 @@
   <table class="table">
     <tr>
     	<th>名前<span class="text-danger">（必須）</span></th>
-    	<td><%= f.text_field :name %></td>
+    	<td><%= f.text_field :name, class: "form-control" %></td>
     </tr>
 
     <tr>
     	<th>会社名</th>
-    	<td><%= f.text_field :company_name %></td>
+    	<td><%= f.text_field :company_name, class: "form-control" %></td>
     </tr>
 
     <tr>
       <th>メールアドレス<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :email %></td>
+      <td><%= f.text_field :email, class: "form-control" %></td>
     </tr>
 
     <tr>
       <th>電話番号(ハイフンなし)<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_field :telephone_number %></td>
+      <td><%= f.text_field :telephone_number, class: "form-control" %></td>
     </tr>
 
     <tr>
       <th>お問い合わせ内容<span class="text-danger">（必須）</span></th>
-      <td><%= f.text_area :contact_detail %></td>
+      <td><%= f.text_area :contact_detail, class: "form-control" %></td>
     </tr>
 
   </table>
